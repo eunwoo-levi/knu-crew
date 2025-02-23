@@ -1,4 +1,4 @@
-import ClubDashBoard from '@/src/features/club/ui/ClubDashBoard';
+import { ClubDashBoard } from '@/src/features/club';
 import Image from 'next/image';
 
 export default function Home() {

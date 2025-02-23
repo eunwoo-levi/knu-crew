@@ -1,4 +1,4 @@
-import { Club } from '@/src/shared/type/type';
+import { Club } from '@/src/shared';
 import Link from 'next/link';
 
 export default function ClubTable({ club }: { club: Club }) {

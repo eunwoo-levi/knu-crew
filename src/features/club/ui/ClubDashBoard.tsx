@@ -2,9 +2,9 @@
 
 import React, { Fragment, useState } from 'react';
 import SearchBar from './SearchBar';
-import { clubCategory, clubList } from '../model/data';
 import ClubTable from './ClubTable';
-import { Club } from '@/src/shared/type/type';
+import { clubCategory, clubList } from '../model/data';
+import { Club } from '@/src/shared';
 
 export default function ClubDashBoard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
