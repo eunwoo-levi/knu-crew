@@ -10,9 +10,11 @@ export default function ClubDashBoard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
 
-  const filteredClubs = clubList.filter((club: Club) =>
-    club.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const filteredClubs = clubList.filter((club: Club) => {
+    const matchedsearch = club.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchedCategory = selectedCategory === '전체' ? true : club.category === selectedCategory;
+    return matchedsearch && matchedCategory;
+  });
 
   return (
     <div className='flex w-full flex-col items-center gap-8'>

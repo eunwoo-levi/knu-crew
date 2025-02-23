@@ -30,4 +30,12 @@ export const clubList = [
   { id: 18, name: '명상모임', category: '종교분과', recruit: false },
   { id: 19, name: '테니스클럽', category: '체육분과', recruit: true },
   { id: 20, name: '프로그래밍스터디', category: '학술분과', recruit: false },
+  { id: 21, name: 'ACE', category: '신규등록', recruit: true },
+  { id: 22, name: '수리영역', category: '신규등록', recruit: true },
+  { id: 21, name: 'ACE', category: '신규등록', recruit: true },
+  { id: 22, name: '뜨람TRAME', category: '가등록', recruit: true },
+  { id: 23, name: '크누 모빌리티', category: '가등록', recruit: false },
+  { id: 24, name: 'PLEIADES', category: '가등록', recruit: false },
+  { id: 25, name: 'SLANG', category: '가등록', recruit: false },
+  { id: 26, name: 'H.P', category: '가등록', recruit: false },
 ];
