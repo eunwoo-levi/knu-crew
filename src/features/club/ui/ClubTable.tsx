@@ -1,15 +1,7 @@
+import { Club } from '@/src/shared/type/type';
 import Link from 'next/link';
 
-interface ClubTableProps {
-  club: {
-    id: number;
-    name: string;
-    category: string;
-    recruit: boolean;
-  };
-}
-
-export default function ClubTable({ club }: ClubTableProps) {
+export default function ClubTable({ club }: { club: Club }) {
   return (
     <Link
       href={`/club/${club.id}`}
