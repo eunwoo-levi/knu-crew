@@ -22,7 +22,7 @@ export default function ClubDashBoard() {
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
       <div className='mt-6 flex w-full justify-between'>
-        <span className='font-semibold'>총 30개 동아리</span>
+        <span className='font-semibold'>{`총 ${clubList.length}개 동아리`}</span>
         <div className='space-x-6 font-semibold'>
           <button className='rounded-lg border border-black p-2 duration-100 hover:scale-105'>
             모집 상황
