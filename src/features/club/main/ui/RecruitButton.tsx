@@ -1,28 +1,15 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-type Option = 'all' | 'recruiting' | 'closed';
-
-interface SelectedOptions {
-  all: boolean;
-  recruiting: boolean;
-  closed: boolean;
+interface RecruitButtonProps {
+  selectedRecruit: string;
+  setSelectedRecruit: (value: string) => void;
 }
 
-export default function RecruitButton() {
+export default function RecruitButton({ selectedRecruit, setSelectedRecruit }: RecruitButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({
-    all: false,
-    recruiting: false,
-    closed: false,
-  });
-
   const modalRef = useRef<HTMLDivElement>(null);
-
-  const toggleOption = (option: Option): void => {
-    setSelectedOptions((prev) => ({ ...prev, [option]: !prev[option] }));
-  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -42,11 +29,7 @@ export default function RecruitButton() {
     };
   }, [isModalOpen]);
 
-  const options: { key: Option; label: string }[] = [
-    { key: 'all', label: '전체' },
-    { key: 'recruiting', label: '모집중' },
-    { key: 'closed', label: '모집마감' },
-  ];
+  const options: string[] = ['전체', '모집중', '마감모집'];
 
   return (
     <div className='relative'>
@@ -61,17 +44,20 @@ export default function RecruitButton() {
           ref={modalRef}
           className='absolute right-0 top-12 w-40 rounded-lg bg-white p-2 shadow-md'
         >
-          {options.map(({ key, label }) => (
-            <div key={key} className='mb-2 flex justify-center'>
-              <label className='flex w-full items-center rounded-lg p-2 hover:bg-gray-100'>
-                <div className='flex w-6 justify-start'>
-                  <input
-                    type='checkbox'
-                    checked={selectedOptions[key]}
-                    onChange={() => toggleOption(key)}
-                  />
-                </div>
-                <span className='ml-2'>{label}</span>
+          {options.map((option) => (
+            <div key={option} className='mb-2 flex justify-center'>
+              <label className='flex w-full cursor-pointer items-center rounded-lg p-2 hover:bg-gray-100'>
+                <input
+                  type='radio'
+                  name='recruit'
+                  value={option}
+                  checked={selectedRecruit === option}
+                  onChange={() => {
+                    setSelectedRecruit(option);
+                    setIsModalOpen(false);
+                  }}
+                />
+                <span className='ml-2'>{option}</span>
               </label>
             </div>
           ))}
