@@ -10,6 +10,6 @@ export const linkList = [
   },
   {
     title: '총동아리연합회',
-    href: '/association',
+    href: 'http://dongari.knu.ac.kr',
   },
 ];
