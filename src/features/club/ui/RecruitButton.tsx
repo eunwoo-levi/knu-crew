@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 type Option = 'all' | 'recruiting' | 'closed';
 
@@ -18,9 +18,35 @@ export default function RecruitButton() {
     closed: false,
   });
 
+  const modalRef = useRef<HTMLDivElement>(null);
+
   const toggleOption = (option: Option): void => {
     setSelectedOptions((prev) => ({ ...prev, [option]: !prev[option] }));
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        setIsModalOpen(false);
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isModalOpen]);
+
+  const options: { key: Option; label: string }[] = [
+    { key: 'all', label: '전체' },
+    { key: 'recruiting', label: '모집중' },
+    { key: 'closed', label: '모집마감' },
+  ];
 
   return (
     <div className='relative'>
@@ -31,43 +57,24 @@ export default function RecruitButton() {
         모집 상황
       </button>
       {isModalOpen && (
-        <div className='absolute right-0 top-11 w-40 rounded-lg border border-black bg-white p-2'>
-          <div className='mb-2 flex justify-center'>
-            <label className='flex items-center'>
-              <div className='flex w-6 justify-start'>
-                <input
-                  type='checkbox'
-                  checked={selectedOptions.all}
-                  onChange={() => toggleOption('all')}
-                />
-              </div>
-              <span className='ml-2'>전체</span>
-            </label>
-          </div>
-          <div className='mb-2 flex justify-center'>
-            <label className='flex items-center'>
-              <div className='flex w-6 justify-start'>
-                <input
-                  type='checkbox'
-                  checked={selectedOptions.recruiting}
-                  onChange={() => toggleOption('recruiting')}
-                />
-              </div>
-              <span className='ml-2'>모집중</span>
-            </label>
-          </div>
-          <div className='flex justify-center'>
-            <label className='flex items-center'>
-              <div className='flex w-6 justify-start'>
-                <input
-                  type='checkbox'
-                  checked={selectedOptions.closed}
-                  onChange={() => toggleOption('closed')}
-                />
-              </div>
-              <span className='ml-2'>모집마감</span>
-            </label>
-          </div>
+        <div
+          ref={modalRef}
+          className='absolute right-0 top-12 w-40 rounded-lg bg-white p-2 shadow-md'
+        >
+          {options.map(({ key, label }) => (
+            <div key={key} className='mb-2 flex justify-center'>
+              <label className='flex w-full items-center rounded-lg p-2 hover:bg-gray-100'>
+                <div className='flex w-6 justify-start'>
+                  <input
+                    type='checkbox'
+                    checked={selectedOptions[key]}
+                    onChange={() => toggleOption(key)}
+                  />
+                </div>
+                <span className='ml-2'>{label}</span>
+              </label>
+            </div>
+          ))}
         </div>
       )}
     </div>
