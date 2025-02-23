@@ -3,10 +3,7 @@ export const linkList = [
     title: '서비스 소개',
     href: '/about',
   },
-  {
-    title: '동아리',
-    href: '/clubs',
-  },
+
   {
     title: '공지 게시판',
     href: '/board',
