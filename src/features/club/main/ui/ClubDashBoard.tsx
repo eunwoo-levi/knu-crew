@@ -2,7 +2,7 @@
 
 import { Club } from '@/src/shared';
 import { Fragment, useState } from 'react';
-import { clubCategory, clubList } from '../model/data';
+import { clubCategory, clubList } from '../../model/data';
 import ClubTable from './ClubTable';
 import OrderButton from './OrderButton';
 import RecruitButton from './RecruitButton';

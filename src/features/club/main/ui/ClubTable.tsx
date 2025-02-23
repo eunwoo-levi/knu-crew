@@ -1,6 +1,6 @@
 import { Club } from '@/src/shared';
 import Link from 'next/link';
-import { textColorsByCategory } from '../model/data';
+import { textColorsByCategory } from '../../model/data';
 
 export default function ClubTable({ club }: { club: Club }) {
   return (
