@@ -41,12 +41,11 @@ export const clubList = [
 ];
 
 export const textColorsByCategory: { [key: string]: string } = {
-  전체: 'text-gray-400',
-  신규등록: 'text-sky-400',
-  가등록: 'text-blue-400',
-  문예분과: 'text-yellow-400',
+  신규등록: 'text-sky-500',
+  가등록: 'text-blue-800',
+  문예분과: 'text-yellow-800',
   사회분과: 'text-red-400',
-  종교분과: 'text-green-400',
+  종교분과: 'text-green-800',
   체육분과: 'text-indigo-400',
-  학술분과: 'text-purple-400',
+  학술분과: 'text-purple-600',
 };
