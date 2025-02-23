@@ -7,7 +7,7 @@ import ClubInfo from '@/src/features/club/ui/ClubInfo';
 import ClubNotFound from '@/src/features/club/ui/ClubNotFound';
 import type { ActiveTabTypes } from '@/src/features/club/ui/TabMenu';
 import TabMenu from '@/src/features/club/ui/TabMenu';
-import { Club } from '@/src/shared/type/type';
+import { Club } from '@/src/shared';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
