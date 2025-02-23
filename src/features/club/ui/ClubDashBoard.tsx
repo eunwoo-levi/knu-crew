@@ -8,6 +8,7 @@ import { Club } from '@/src/shared/type/type';
 
 export default function ClubDashBoard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('전체');
 
   const filteredClubs = clubList.filter((club: Club) =>
     club.name.toLowerCase().includes(searchTerm.toLowerCase()),
@@ -32,10 +33,13 @@ export default function ClubDashBoard() {
       <div className='flex w-full items-center justify-evenly rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500'>
         {clubCategory.map((category, idx) => (
           <Fragment key={idx}>
-            <button className='rounded-lg px-4 py-2 duration-100 hover:scale-105'>
+            <button
+              className={`${selectedCategory === category ? 'bg-blue-100 text-blue-500' : ''} rounded-lg px-4 py-2 duration-100 hover:scale-105`}
+              onClick={() => setSelectedCategory(category)}
+            >
               {category}
             </button>
-            {idx !== clubCategory.length - 1 && <span className='text-neutral-400'>|</span>}
+            {idx !== clubCategory.length - 1 && <div className='text-neutral-400'>|</div>}
           </Fragment>
         ))}
       </div>
