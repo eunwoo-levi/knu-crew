@@ -1,12 +1,16 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-type SortOption = 'default' | 'club' | 'category';
+export type SortOption = 'default' | 'club' | 'category';
 
-export default function OrderButton() {
+interface OrderButtonProps {
+  sortOption: SortOption;
+  setSortOption: (option: SortOption) => void;
+}
+
+export default function OrderButton({ sortOption, setSortOption }: OrderButtonProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [sortOption, setSortOption] = useState<SortOption>('default');
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,7 +39,7 @@ export default function OrderButton() {
   const getButtonClass = (option: SortOption): string =>
     option === sortOption
       ? 'rounded-lg p-2 bg-blue-500 text-white'
-      : 'rounded-lg  p-2 bg-white text-black hover:bg-blue-100';
+      : 'rounded-lg p-2 bg-white text-black hover:bg-blue-100';
 
   return (
     <div className='relative inline-block'>
