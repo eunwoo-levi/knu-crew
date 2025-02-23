@@ -1,13 +1,22 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import SearchBar from './SearchBar';
 import { clubCategory, clubList } from '../model/data';
 import ClubTable from './ClubTable';
+import { Club } from '@/src/shared/type/type';
 
 export default function ClubDashBoard() {
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const filteredClubs = clubList.filter((club: Club) =>
+    club.name.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   return (
     <div className='flex w-full flex-col items-center gap-8'>
       <div className='flex w-full items-center justify-center'>
-        <SearchBar />
+        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
       <div className='mt-6 flex w-full justify-between'>
         <span className='font-semibold'>총 30개 동아리</span>
@@ -28,7 +37,7 @@ export default function ClubDashBoard() {
         ))}
       </div>
       <main className='grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
-        {clubList.map((club, idx) => (
+        {filteredClubs.map((club, idx) => (
           <ClubTable key={idx} club={club} />
         ))}
       </main>
