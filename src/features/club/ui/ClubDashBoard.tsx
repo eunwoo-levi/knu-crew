@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import SearchBar from './SearchBar';
 import { clubCategory, clubList } from '../model/data';
 import ClubTable from './ClubTable';
@@ -31,9 +31,12 @@ export default function ClubDashBoard() {
       </div>
       <div className='flex w-full items-center justify-evenly rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500'>
         {clubCategory.map((category, idx) => (
-          <button key={idx} className='rounded-lg px-4 py-2 duration-100 hover:scale-105'>
-            {category}
-          </button>
+          <Fragment key={idx}>
+            <button className='rounded-lg px-4 py-2 duration-100 hover:scale-105'>
+              {category}
+            </button>
+            {idx !== clubCategory.length - 1 && <span className='text-neutral-400'>|</span>}
+          </Fragment>
         ))}
       </div>
       <main className='grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
