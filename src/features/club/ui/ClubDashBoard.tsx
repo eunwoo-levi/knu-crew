@@ -3,7 +3,7 @@
 import React, { Fragment, useState } from 'react';
 import SearchBar from './SearchBar';
 import ClubTable from './ClubTable';
-import { clubCategory, clubList } from '../model/data';
+import { clubCategory, clubList, textColorsByCategory } from '../model/data';
 import { Club } from '@/src/shared';
 
 export default function ClubDashBoard() {

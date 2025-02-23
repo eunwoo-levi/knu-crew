@@ -1,5 +1,6 @@
 import { Club } from '@/src/shared';
 import Link from 'next/link';
+import { textColorsByCategory } from '../model/data';
 
 export default function ClubTable({ club }: { club: Club }) {
   return (
@@ -9,7 +10,9 @@ export default function ClubTable({ club }: { club: Club }) {
     >
       <div className='flex flex-col items-start justify-center gap-2'>
         <span className='text-lg font-bold'>{club.name}</span>
-        <span>{club.category}</span>
+        <span className={` ${textColorsByCategory[club.category] || 'text-neutral-500'}`}>
+          {club.category}
+        </span>
       </div>
       <div className='flex items-center justify-center font-semibold'>
         {club.recruit ? (

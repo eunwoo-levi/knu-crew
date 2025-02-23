@@ -39,3 +39,14 @@ export const clubList = [
   { id: 25, name: 'SLANG', category: '가등록', recruit: false },
   { id: 26, name: 'H.P', category: '가등록', recruit: false },
 ];
+
+export const textColorsByCategory: { [key: string]: string } = {
+  전체: 'text-gray-400',
+  신규등록: 'text-sky-400',
+  가등록: 'text-blue-400',
+  문예분과: 'text-yellow-400',
+  사회분과: 'text-red-400',
+  종교분과: 'text-green-400',
+  체육분과: 'text-indigo-400',
+  학술분과: 'text-purple-400',
+};
