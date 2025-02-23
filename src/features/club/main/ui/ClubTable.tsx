@@ -1,6 +1,6 @@
 import { Club } from '@/src/shared';
 import Link from 'next/link';
-import { textColorsByCategory } from '../model/data';
+import { textColorsByCategory } from '../../shared/model/data';
 
 export default function ClubTable({ club }: { club: Club }) {
   return (
@@ -15,7 +15,7 @@ export default function ClubTable({ club }: { club: Club }) {
         </span>
       </div>
       <div className='flex items-center justify-center font-semibold'>
-        {club.recruit ? (
+        {club.recruit === '모집중' ? (
           <div className='rounded-md bg-green-100 p-2 text-green-600'>모집중</div>
         ) : (
           <div className='rounded-md bg-neutral-100 p-2 text-neutral-500'>모집 완료</div>
