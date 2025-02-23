@@ -22,7 +22,7 @@ export default function ClubDashBoard() {
   });
 
   return (
-    <div className='flex w-full flex-col items-center gap-8'>
+    <div className='flex w-full max-w-7xl flex-col items-center gap-8'>
       <div className='flex w-full items-center justify-center'>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
@@ -33,7 +33,7 @@ export default function ClubDashBoard() {
           <OrderButton />
         </div>
       </div>
-      <div className='flex w-full items-center justify-evenly rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500'>
+      <div className='flex w-full h-18 overflow-x-auto whitespace-nowrap items-center justify-evenly rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500 scrollbar-hidden hover:scrollbar-thin'>
         {clubCategory.map((category, idx) => (
           <Fragment key={idx}>
             <button
@@ -46,7 +46,7 @@ export default function ClubDashBoard() {
           </Fragment>
         ))}
       </div>
-      <main className='grid w-full grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3'>
+      <main className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {filteredClubs.map((club, idx) => (
           <ClubTable key={idx} club={club} />
         ))}
