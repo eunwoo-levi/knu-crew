@@ -1,10 +1,10 @@
 'use client';
 
-import React, { Fragment, useState } from 'react';
-import SearchBar from './SearchBar';
-import ClubTable from './ClubTable';
-import { clubCategory, clubList, textColorsByCategory } from '../model/data';
 import { Club } from '@/src/shared';
+import { Fragment, useState } from 'react';
+import { clubCategory, clubList } from '../model/data';
+import ClubTable from './ClubTable';
+import SearchBar from './SearchBar';
 
 export default function ClubDashBoard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -32,7 +32,7 @@ export default function ClubDashBoard() {
           </button>
         </div>
       </div>
-      <div className='flex w-full h-18 overflow-x-auto whitespace-nowrap items-center justify-evenly rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500 scrollbar-hidden hover:scrollbar-thin'>
+      <div className='h-18 scrollbar-hidden hover:scrollbar-thin flex w-full items-center justify-evenly overflow-x-auto whitespace-nowrap rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500'>
         {clubCategory.map((category, idx) => (
           <Fragment key={idx}>
             <button
@@ -45,7 +45,7 @@ export default function ClubDashBoard() {
           </Fragment>
         ))}
       </div>
-      <main className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <main className='grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
         {filteredClubs.map((club, idx) => (
           <ClubTable key={idx} club={club} />
         ))}
