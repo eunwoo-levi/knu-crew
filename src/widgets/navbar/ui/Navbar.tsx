@@ -30,7 +30,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className='text-3xl focus:outline-none lg:hidden'
+          className='rounded-md text-3xl hover:bg-neutral-300 focus:outline-none lg:hidden'
           onClick={() => setIsOpen(!isOpen)}
         >
           ☰
@@ -40,7 +40,7 @@ export default function Navbar() {
           <div className='absolute left-0 top-16 w-full bg-white shadow-md lg:hidden'>
             <ul className='flex flex-col items-center space-y-4 py-4'>
               {linkList.map((link, idx) => (
-                <li key={idx}>
+                <li key={idx} className='flex w-full flex-col items-center'>
                   <Link
                     href={link.href}
                     className='text-lg font-semibold duration-200 hover:scale-105'
@@ -48,6 +48,9 @@ export default function Navbar() {
                   >
                     {link.title}
                   </Link>
+                  {idx !== linkList.length - 1 && (
+                    <div className='my-3 h-[1px] w-4/5 bg-neutral-200' />
+                  )}
                 </li>
               ))}
             </ul>
