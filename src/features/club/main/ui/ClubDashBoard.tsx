@@ -2,7 +2,8 @@
 
 import { Club } from '@/src/shared';
 import { Fragment, useState } from 'react';
-import { clubCategory, clubList } from '../../shared/model/data';
+import { clubCategory } from '../../shared/model/data';
+import { useClubListsQuery } from '../hooks/useClubListsQuery';
 import ClubTable from './ClubTable';
 import OrderButton, { SortOption } from './OrderButton';
 import RecruitButton from './RecruitButton';
@@ -14,10 +15,12 @@ export default function ClubDashBoard() {
   const [selectedRecruit, setSelectedRecruit] = useState<boolean | null>(null);
   const [sortOption, setSortOption] = useState<SortOption>('default');
 
+  const { data: clubList = [], isLoading, isError, error } = useClubListsQuery();
+
   const filteredClubs = clubList.filter((club: Club) => {
     const matchedSearch = club.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchedCategory = selectedCategory === '전체' ? true : club.category === selectedCategory;
-    const matchedRecruit = selectedRecruit === null ? true : club.recruit === selectedRecruit;
+    const matchedRecruit = selectedRecruit === null ? true : club.isRecruiting === selectedRecruit;
 
     return matchedSearch && matchedCategory && matchedRecruit;
   });
@@ -31,6 +34,18 @@ export default function ClubDashBoard() {
     }
     return 0;
   });
+
+  if (isLoading) {
+    return <div className='mt-10 text-center'>동아리 목록을 불러오는 중입니다...</div>;
+  }
+
+  if (isError) {
+    return (
+      <div className='mt-10 text-center text-red-500'>
+        {error instanceof Error ? error.message : '데이터 로딩 중 오류가 발생했습니다.'}
+      </div>
+    );
+  }
 
   return (
     <div className='flex w-full max-w-7xl flex-col items-center gap-8'>
