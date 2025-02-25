@@ -2,11 +2,29 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { linkList } from '../model/data';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('click', handleClickOutside);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <nav className='fixed left-0 top-0 z-50 flex h-[70px] w-full bg-white shadow-md'>
@@ -37,7 +55,7 @@ export default function Navbar() {
         </button>
 
         {isOpen && (
-          <div className='absolute left-0 top-16 w-full bg-white shadow-md lg:hidden'>
+          <div ref={menuRef} className='absolute left-0 top-16 w-full bg-white shadow-md lg:hidden'>
             <ul className='flex flex-col items-center space-y-4 py-4'>
               {linkList.map((link, idx) => (
                 <li key={idx} className='flex w-full flex-col items-center'>
