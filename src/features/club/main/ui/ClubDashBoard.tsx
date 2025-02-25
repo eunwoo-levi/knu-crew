@@ -11,25 +11,25 @@ import SearchBar from './SearchBar';
 export default function ClubDashBoard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('전체');
-  const [selectedRecruit, setSelectedRecruit] = useState<string>('전체');
+  const [selectedRecruit, setSelectedRecruit] = useState<boolean | null>(null);
   const [sortOption, setSortOption] = useState<SortOption>('default');
 
   const filteredClubs = clubList.filter((club: Club) => {
     const matchedSearch = club.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchedCategory = selectedCategory === '전체' ? true : club.category === selectedCategory;
-    const matchedRecruit = selectedRecruit === '전체' ? true : club.recruit === selectedRecruit;
+    const matchedRecruit = selectedRecruit === null ? true : club.recruit === selectedRecruit;
 
     return matchedSearch && matchedCategory && matchedRecruit;
   });
 
-  const sortedClubs = [...filteredClubs].sort((a, b) => {
+  const sortedClubs = filteredClubs.sort((a, b) => {
     if (sortOption === 'club') {
       return a.name.localeCompare(b.name);
     }
     if (sortOption === 'category') {
       return a.category.localeCompare(b.category);
     }
-    return 0; // 'default'일 경우 원래 순서를 유지
+    return 0;
   });
 
   return (
@@ -47,7 +47,7 @@ export default function ClubDashBoard() {
           <OrderButton sortOption={sortOption} setSortOption={setSortOption} />
         </div>
       </div>
-      <div className='h-18 scrollbar-hidden hover:scrollbar-thin flex w-full items-center justify-evenly overflow-x-auto whitespace-nowrap rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500'>
+      <div className='h-18 scrollbar-hidden flex w-full items-center justify-evenly overflow-x-auto whitespace-nowrap rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500 hover:scrollbar-thin'>
         {clubCategory.map((category, idx) => (
           <Fragment key={idx}>
             <button
