@@ -2,12 +2,15 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-interface RecruitButtonProps {
+interface RecruitDropdownProps {
   selectedRecruit: boolean | null;
   setSelectedRecruit: (value: boolean | null) => void;
 }
 
-export default function RecruitButton({ selectedRecruit, setSelectedRecruit }: RecruitButtonProps) {
+export default function RecruitDropdown({
+  selectedRecruit,
+  setSelectedRecruit,
+}: RecruitDropdownProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -31,8 +34,8 @@ export default function RecruitButton({ selectedRecruit, setSelectedRecruit }: R
 
   const options: { label: string; value: boolean | null }[] = [
     { label: '전체', value: null },
-    { label: '모집중', value: true },
-    { label: '마감모집', value: false },
+    { label: '모집 중', value: true },
+    { label: '마감 완료', value: false },
   ];
 
   return (

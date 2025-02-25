@@ -5,8 +5,8 @@ import { Fragment, useState } from 'react';
 import { clubCategory } from '../../shared/model/data';
 import { useClubListsQuery } from '../hooks/useClubListsQuery';
 import ClubTable from './ClubTable';
-import OrderButton, { SortOption } from './OrderButton';
-import RecruitButton from './RecruitButton';
+import OrderDropdown, { SortOption } from './OrderDropdown';
+import RecruitDropdown from './RecruitDropdown';
 import SearchBar from './SearchBar';
 
 export default function ClubDashBoard() {
@@ -55,11 +55,11 @@ export default function ClubDashBoard() {
       <div className='mt-6 flex w-full items-center justify-between'>
         <span className='font-semibold'>{`총 ${clubList.length}개 동아리`}</span>
         <div className='flex space-x-6 font-semibold'>
-          <RecruitButton
+          <RecruitDropdown
             selectedRecruit={selectedRecruit}
             setSelectedRecruit={setSelectedRecruit}
           />
-          <OrderButton sortOption={sortOption} setSortOption={setSortOption} />
+          <OrderDropdown sortOption={sortOption} setSortOption={setSortOption} />
         </div>
       </div>
       <div className='h-18 scrollbar-hidden flex w-full items-center justify-evenly overflow-x-auto whitespace-nowrap rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500 hover:scrollbar-thin'>
