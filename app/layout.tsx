@@ -1,4 +1,4 @@
-import { QueryProvider } from '@/src/app/provider/QueryProvder';
+import { QueryProvider } from '@/src/app/provider/QueryProvider';
 import { Navbar } from '@/src/widgets/navbar';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
