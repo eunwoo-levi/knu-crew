@@ -30,7 +30,7 @@ export const clubList = [
   { id: 18, name: '명상모임', category: '종교분과', recruit: '마감모집' },
   { id: 19, name: '테니스클럽', category: '체육분과', recruit: '모집중' },
   { id: 20, name: '프로그래밍스터디', category: '학술분과', recruit: '마감모집' },
-  { id: 21, name: 'ACE', category: '신규등록', recruit: '모집중' },
+  { id: 21, name: '불교기도', category: '신규등록', recruit: '모집중' },
   { id: 22, name: '수리영역', category: '신규등록', recruit: '모집중' },
   { id: 21, name: 'ACE', category: '신규등록', recruit: '모집중' },
   { id: 22, name: '뜨람TRAME', category: '가등록', recruit: '모집중' },
