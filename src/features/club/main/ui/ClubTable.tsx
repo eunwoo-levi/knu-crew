@@ -15,7 +15,7 @@ export default function ClubTable({ club }: { club: Club }) {
         </span>
       </div>
       <div className='flex items-center justify-center font-semibold'>
-        {club.recruit === '모집중' ? (
+        {club.recruit ? (
           <div className='rounded-md bg-green-100 p-2 text-green-600'>모집중</div>
         ) : (
           <div className='whitespace-nowrap rounded-md bg-neutral-100 p-2 text-neutral-500'>
