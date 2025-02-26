@@ -1,13 +1,13 @@
-export const clubCategory = [
-  '전체',
-  '신규등록',
-  '가등록',
-  '문예분과',
-  '사회분과',
-  '종교분과',
-  '체육분과',
-  '학술분과',
-];
+export const clubCategoryMapping: Record<string, string> = {
+  ALL: '전체',
+  NEW_REGISTRATION: '신규등록',
+  TEMPORARY_REGISTRATION: '가등록',
+  CULTURE_ARTS: '문예분과',
+  SOCIAL: '사회분과',
+  RELIGION: '종교분과',
+  SPORTS: '체육분과',
+  ACADEMIC: '학술분과',
+};
 
 export const clubList = [
   { id: 1, name: '서예꾸밈', category: '문예분과', isRecruiting: true },
@@ -41,11 +41,11 @@ export const clubList = [
 ];
 
 export const textColorsByCategory: { [key: string]: string } = {
-  신규등록: 'text-sky-500',
-  가등록: 'text-blue-800',
-  문예분과: 'text-yellow-800',
-  사회분과: 'text-red-400',
-  종교분과: 'text-green-800',
-  체육분과: 'text-indigo-400',
-  학술분과: 'text-purple-600',
+  NEW_REGISTRATION: 'text-sky-500',
+  TEMPORARY_REGISTRATION: 'text-blue-800',
+  CULTURE_ARTS: 'text-yellow-800',
+  SOCIAL: 'text-red-400',
+  RELIGION: 'text-green-800',
+  SPORTS: 'text-indigo-400',
+  ACADEMIC: 'text-purple-600',
 };

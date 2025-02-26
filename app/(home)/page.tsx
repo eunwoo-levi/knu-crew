@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <div className='flex flex-col items-center'>
-      <div className='relative mt-12 h-60 w-full max-w-7xl px-4 md:w-3/4'>
+      <div className='relative mt-6 h-60 w-full max-w-7xl px-4 md:w-3/4'>
         <Image src='/banner.webp' alt='banner' fill className='rounded-2xl object-cover' />
       </div>
 

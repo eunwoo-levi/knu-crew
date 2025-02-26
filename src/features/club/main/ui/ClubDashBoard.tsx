@@ -2,7 +2,7 @@
 
 import { Club } from '@/src/shared';
 import { Fragment, useState } from 'react';
-import { clubCategory } from '../../shared/model/data';
+import { clubCategoryMapping } from '../../shared/model/data';
 import { useClubListsQuery } from '../hooks/useClubListsQuery';
 import ClubTable from './ClubTable';
 import OrderDropdown, { SortOption } from './OrderDropdown';
@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 
 export default function ClubDashBoard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('전체');
+  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedRecruit, setSelectedRecruit] = useState<boolean | null>(null);
   const [sortOption, setSortOption] = useState<SortOption>('default');
 
@@ -19,7 +19,8 @@ export default function ClubDashBoard() {
 
   const filteredClubs = clubList.filter((club: Club) => {
     const matchedSearch = club.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchedCategory = selectedCategory === '전체' ? true : club.category === selectedCategory;
+    const matchedCategory =
+      selectedCategory === 'ALL' ? true : clubCategoryMapping[club.category] === selectedCategory;
     const matchedRecruit = selectedRecruit === null ? true : club.isRecruiting === selectedRecruit;
 
     return matchedSearch && matchedCategory && matchedRecruit;
@@ -30,7 +31,7 @@ export default function ClubDashBoard() {
       return a.name.localeCompare(b.name);
     }
     if (sortOption === 'category') {
-      return a.category.localeCompare(b.category);
+      return clubCategoryMapping[a.category].localeCompare(clubCategoryMapping[b.category]);
     }
     return 0;
   });
@@ -63,7 +64,7 @@ export default function ClubDashBoard() {
         </div>
       </div>
       <div className='h-18 scrollbar-hidden flex w-full items-center justify-evenly overflow-x-auto whitespace-nowrap rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500 hover:scrollbar-thin'>
-        {clubCategory.map((category, idx) => (
+        {Object.values(clubCategoryMapping).map((category, idx) => (
           <Fragment key={idx}>
             <button
               className={`${selectedCategory === category ? 'bg-blue-100 text-blue-500' : ''} rounded-lg px-4 py-2 duration-100 hover:scale-105`}
@@ -71,11 +72,13 @@ export default function ClubDashBoard() {
             >
               {category}
             </button>
-            {idx !== clubCategory.length - 1 && <div className='text-neutral-400'>|</div>}
+            {idx !== Object.keys(clubCategoryMapping).length - 1 && (
+              <div className='text-neutral-400'>|</div>
+            )}
           </Fragment>
         ))}
       </div>
-      <main className='grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4'>
+      <main className='grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
         {sortedClubs.map((club, idx) => (
           <ClubTable key={idx} club={club} />
         ))}
