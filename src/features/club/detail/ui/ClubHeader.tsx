@@ -18,7 +18,7 @@ export default function ClubHeader({ club }: ClubHeaderProps) {
         <div className='mt-2 grid grid-cols-2 gap-2 text-sm text-gray-700'>
           <p>
             <span className='font-medium'>모집 여부:</span>{' '}
-            {club.recruit ? (
+            {club.isRecruiting ? (
               <span className='font-semibold text-green-600'>모집 중</span>
             ) : (
               <span className='font-semibold text-red-600'>모집 마감</span>
@@ -28,11 +28,11 @@ export default function ClubHeader({ club }: ClubHeaderProps) {
       </div>
       <button
         className={`rounded-lg px-4 py-2 text-sm ${
-          club.recruit ? 'bg-red-500 text-white' : 'bg-gray-300 text-gray-600'
+          club.isRecruiting ? 'bg-red-500 text-white' : 'bg-gray-300 text-gray-600'
         }`}
-        disabled={!club.recruit}
+        disabled={!club.isRecruiting}
       >
-        {club.recruit ? '가입 신청' : '모집 마감'}
+        {club.isRecruiting ? '가입 신청' : '모집 마감'}
       </button>
     </div>
   );

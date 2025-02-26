@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 
 export type SortOption = 'default' | 'club' | 'category';
 
-interface OrderButtonProps {
+interface OrderDropdownProps {
   sortOption: SortOption;
   setSortOption: (option: SortOption) => void;
 }
 
-export default function OrderButton({ sortOption, setSortOption }: OrderButtonProps) {
+export default function OrderDropdown({ sortOption, setSortOption }: OrderDropdownProps) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
