@@ -1,13 +1,13 @@
 'use client';
 
-import { clubList } from '@/src/features/club/model/data';
-import ClubFeed from '@/src/features/club/ui/ClubFeed';
-import ClubHeader from '@/src/features/club/ui/ClubHeader';
-import ClubInfo from '@/src/features/club/ui/ClubInfo';
-import ClubNotFound from '@/src/features/club/ui/ClubNotFound';
-import type { ActiveTabTypes } from '@/src/features/club/ui/TabMenu';
-import TabMenu from '@/src/features/club/ui/TabMenu';
-import { Club } from '@/src/shared/type/type';
+import { clubList } from '@/src/features/club';
+import ClubFeed from '@/src/features/club/detail/ui/ClubFeed';
+import ClubHeader from '@/src/features/club/detail/ui/ClubHeader';
+import ClubInfo from '@/src/features/club/detail/ui/ClubInfo';
+import ClubNotFound from '@/src/features/club/detail/ui/ClubNotFound';
+import type { ActiveTabTypes } from '@/src/features/club/detail/ui/TabMenu';
+import TabMenu from '@/src/features/club/detail/ui/TabMenu';
+import { Club } from '@/src/shared';
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
