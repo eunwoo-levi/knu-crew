@@ -29,9 +29,16 @@ export default function Navbar() {
   return (
     <nav className='fixed left-0 top-0 z-50 flex h-[70px] w-full bg-white shadow-md'>
       <div className='mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 md:px-10 lg:px-20'>
-        <div className='flex items-center'>
-          <Link href='/' className='duration-200 hover:scale-110'>
-            <h1 className='text-2xl font-bold text-red-500 md:text-3xl'>KNU CREW</h1>
+        <div className='flex items-center duration-200 hover:scale-110 gap-2 font-Logo'>
+          <Image
+            src='/images/knu-logo.png'
+            alt='KNU logo'
+            width={50}
+            height={50}
+            className='md:h-[60px] md:w-[60px] lg:h-[45px] lg:w-[45px]'
+          />
+          <Link href='/'>
+            <h1 className='font-Logo text-2xl font-bold text-red-500 md:text-3xl'>KNU CREW</h1>
           </Link>
         </div>
 
@@ -74,16 +81,6 @@ export default function Navbar() {
             </ul>
           </div>
         )}
-
-        <div className='hidden items-center lg:flex'>
-          <Image
-            src='/knu.webp'
-            alt='KNU logo'
-            width={50}
-            height={50}
-            className='md:h-[60px] md:w-[60px] lg:h-[70px] lg:w-[70px]'
-          />
-        </div>
       </div>
     </nav>
   );

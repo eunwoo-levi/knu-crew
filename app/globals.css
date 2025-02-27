@@ -20,3 +20,25 @@
   background-color: gray;
   border-radius: 3px;
 }
+
+/* 폰트 */
+body {
+  font-family: 'Pretendard-Thin', sans-serif;
+}
+
+.font-Logo {
+  font-family: 'ANDONG264TTF', sans-serif;
+}
+
+@font-face {
+  font-family: 'ANDONG264TTF';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2502-1@1.0/ANDONG264TTF.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Thin';
+  src: url('/fonts/Pretendard-Thin.otf') format('opentype');
+  font-weight: 200;
+}
