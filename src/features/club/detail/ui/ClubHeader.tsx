@@ -1,4 +1,5 @@
 import { Club } from '@/src/shared';
+import Link from 'next/link';
 
 type ClubHeaderProps = {
   club: Club;
@@ -26,14 +27,19 @@ export default function ClubHeader({ club }: ClubHeaderProps) {
           </p>
         </div>
       </div>
-      <button
+      <Link
+        href='https://docs.google.com/forms/d/e/1FAIpQLSfXHvUwOH1WLTx1aEdCDOvFbl8Gkzy5z549Bo4yxM03TcjGLA/viewform'
         className={`rounded-lg px-4 py-2 text-sm ${
-          club.isRecruiting ? 'bg-red-500 text-white' : 'bg-gray-300 text-gray-600'
+          club.isRecruiting
+            ? 'bg-red-500 text-white'
+            : 'cursor-not-allowed bg-gray-300 text-gray-600'
         }`}
-        disabled={!club.isRecruiting}
+        onClick={(e) => {
+          if (!club.isRecruiting) e.preventDefault();
+        }}
       >
         {club.isRecruiting ? '가입 신청' : '모집 마감'}
-      </button>
+      </Link>
     </div>
   );
 }
