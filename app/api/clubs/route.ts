@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const API_URL = 'http://3.37.5.236:8080/api/clubs';
+const API_URL = 'http://3.38.214.152:8080/api/clubs';
 
 export async function GET() {
   try {

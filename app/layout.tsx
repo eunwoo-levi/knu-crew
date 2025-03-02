@@ -31,7 +31,7 @@ export default function RootLayout({
       >
         <QueryProvider>
           <Navbar />
-          <main className='flex-1 overflow-auto py-[70px]'>{children}</main>
+          <main className='flex-1 overflow-auto'>{children}</main>
         </QueryProvider>
       </body>
     </html>

@@ -27,9 +27,9 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className='fixed left-0 top-0 z-50 flex h-[70px] w-full bg-white shadow-md'>
+    <nav className='sticky left-0 top-0 z-50 flex h-[70px] w-full bg-white shadow-md'>
       <div className='mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 md:px-10 lg:px-20'>
-        <div className='flex items-center duration-200 hover:scale-110 gap-2 font-Logo'>
+        <div className='font-Logo flex items-center gap-2 duration-200 hover:scale-110'>
           <Image
             src='/images/knu-logo.png'
             alt='KNU logo'
