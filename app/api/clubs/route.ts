@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const API_URL = 'http://13.124.13.249:8080/api/clubs';
+const API_URL = `${process.env.BACKEND_URL}/api/clubs`;
 
 export async function GET() {
   try {
