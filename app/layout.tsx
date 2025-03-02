@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from '@/src/app/provider/GoogleAnalytics';
 import { QueryProvider } from '@/src/app/provider/QueryProvider';
 import { Navbar } from '@/src/widgets/navbar';
 import type { Metadata } from 'next';
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex min-h-[calc(100vh-70px)] flex-col antialiased`}
       >
+        <GoogleAnalytics />
         <QueryProvider>
           <Navbar />
           <main className='flex-1 overflow-auto'>{children}</main>
