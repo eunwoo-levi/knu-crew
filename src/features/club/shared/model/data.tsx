@@ -14,7 +14,7 @@ export const clubList = [
   { id: 2, name: 'SLANG(국제교류)', category: '가등록', isRecruiting: false },
   { id: 3, name: 'PLEIADES(메탈밴드동아리)', category: '가등록', isRecruiting: false },
   { id: 4, name: '크누 모빌리티(모빌리티 동아리)', category: '가등록', isRecruiting: false },
-  { id: 5, name: '복현기우회(바둑 동아리)', category: '학술분과', isRecruiting: false },
+  { id: 5, name: '복현기우회(바둑 동아리)', category: '학술분과', isRecruiting: true },
   { id: 6, name: '한울회(아람단 동아리)', category: '사회분과', isRecruiting: false },
   { id: 7, name: '동그라미(농구 동아리)', category: '체육분과', isRecruiting: false },
   { id: 8, name: 'KUTC(테니스 동아리)', category: '체육분과', isRecruiting: false },
