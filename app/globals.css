@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+.banner-fade-in {
+  animation: fadeInScale 1s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .scrollbar-hidden {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE, Edge */
@@ -32,7 +47,8 @@ body {
 
 @font-face {
   font-family: 'ANDONG264TTF';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2502-1@1.0/ANDONG264TTF.woff2') format('woff2');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2502-1@1.0/ANDONG264TTF.woff2')
+    format('woff2');
   font-weight: 700;
   font-style: normal;
 }

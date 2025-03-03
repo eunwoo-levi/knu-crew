@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 
 export default function ClubDashBoard() {
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
+  const [selectedCategory, setSelectedCategory] = useState<string>('전체');
   const [selectedRecruit, setSelectedRecruit] = useState<boolean | null>(null);
   const [sortOption, setSortOption] = useState<SortOption>('default');
 
