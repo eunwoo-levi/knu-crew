@@ -8,7 +8,7 @@ export default function Home() {
         <Image src='/banner.webp' alt='banner' fill className='rounded-2xl object-cover' />
       </div>
 
-      <div className='mt-16 w-full max-w-7xl px-4 md:w-3/4'>
+      <div className='mb-10 mt-16 w-full max-w-7xl px-4 md:w-3/4'>
         <ClubDashBoard />
       </div>
     </div>

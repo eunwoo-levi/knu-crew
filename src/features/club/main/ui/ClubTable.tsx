@@ -6,7 +6,7 @@ export default function ClubTable({ club }: { club: Club }) {
   return (
     <Link
       href={`/club/${club.id}`}
-      className='flex w-11/12 justify-between rounded-lg border px-6 py-5 duration-200 hover:scale-105'
+      className='flex w-11/12 justify-between rounded-lg border px-6 py-6 duration-200 hover:scale-105'
     >
       <div className='flex flex-col items-start justify-center gap-2'>
         <span className='text-lg font-bold'>{club.name}</span>
