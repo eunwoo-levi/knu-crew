@@ -4,7 +4,7 @@ export const getRecruitmentClub = async (clubId: number) => {
       throw new Error('클럽 ID가 필요합니다.');
     }
 
-    const response = await fetch(`/api/admin/recruitment/club/${clubId}`, {
+    const response = await fetch(`/api/admin/recruitment/${clubId}`, {
       method: 'GET',
       cache: 'no-store',
     });
