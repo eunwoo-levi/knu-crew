@@ -20,7 +20,7 @@ export default function ClubDashBoard() {
   const filteredClubs = clubList.filter((club: Club) => {
     const matchedSearch = club.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchedCategory =
-      selectedCategory === 'ALL' ? true : clubCategoryMapping[club.category] === selectedCategory;
+      selectedCategory === '전체' ? true : clubCategoryMapping[club.category] === selectedCategory;
     const matchedRecruit = selectedRecruit === null ? true : club.isRecruiting === selectedRecruit;
 
     return matchedSearch && matchedCategory && matchedRecruit;
