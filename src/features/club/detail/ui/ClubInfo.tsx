@@ -1,4 +1,5 @@
 import { Club } from '@/src/shared';
+import Image from 'next/image';
 
 type ClubInfoProps = {
   club: Club;
@@ -8,10 +9,12 @@ export default function ClubInfo({ club }: ClubInfoProps) {
   return (
     <div className='mt-6'>
       <h2 className='text-xl font-semibold'>동아리 소개 이미지</h2>
-      <img
-        src='/knu.webp' // API 완성 시 교체 필요
+      <Image
+        src='/images/knu.webp' // API 완성 시 교체 필요
         alt={`${club.name} 로고`}
-        className='mt-4 w-48'
+        width={200}
+        height={200}
+        className='mt-4'
       />
 
       <h3 className='mt-6 text-lg font-semibold'>우리 동아리를 소개할게요!</h3>

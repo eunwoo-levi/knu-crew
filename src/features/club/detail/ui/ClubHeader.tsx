@@ -1,4 +1,5 @@
 import { Club } from '@/src/shared';
+import Image from 'next/image';
 import Link from 'next/link';
 
 type ClubHeaderProps = {
@@ -8,10 +9,12 @@ type ClubHeaderProps = {
 export default function ClubHeader({ club }: ClubHeaderProps) {
   return (
     <div className='flex flex-col items-center gap-6 rounded-lg bg-gray-100 p-6 md:flex-row md:items-start'>
-      <img
-        src='/knu.webp' // API 완성 시 교체 필요
+      <Image
+        src='/images/knu.webp' // API 완성 시 교체 필요
         alt='동아리 로고'
-        className='h-24 w-24 rounded-full object-cover'
+        width={100}
+        height={100}
+        className='rounded-full object-cover'
       />
       <div className='flex-1'>
         <h1 className='text-2xl font-bold text-gray-900'>{club.name}</h1>
