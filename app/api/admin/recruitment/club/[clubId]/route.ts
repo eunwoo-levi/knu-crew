@@ -1,6 +1,7 @@
+import { ParamsProps } from '@/src/shared';
 import { NextResponse } from 'next/server';
 
-export async function GET(request: Request, { params }: { params: { clubId: string } }) {
+export async function GET(request: Request, { params }: ParamsProps) {
   try {
     const { clubId } = await params;
 
