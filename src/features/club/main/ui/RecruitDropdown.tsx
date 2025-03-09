@@ -41,7 +41,7 @@ export default function RecruitDropdown({
   return (
     <div className='relative font-bold'>
       <button
-        className='rounded-lg border border-black p-2 text-lg font-bold duration-100 hover:scale-105'
+        className='rounded-lg border border-black p-2 font-bold duration-100 hover:scale-105'
         onClick={() => setIsModalOpen(!isModalOpen)}
       >
         모집 상황
