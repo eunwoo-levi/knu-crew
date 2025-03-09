@@ -43,12 +43,12 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className='hidden flex-1 justify-center gap-10 lg:flex'>
+        <div className='hidden flex-1 justify-center gap-20 lg:flex'>
           {linkList.map((link, idx) => (
             <Link
               key={idx}
               href={link.href}
-              className='text-lg font-semibold duration-200 hover:scale-105'
+              className='text-xl font-bold duration-200 hover:scale-110'
             >
               {link.title}
             </Link>
