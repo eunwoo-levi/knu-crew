@@ -35,13 +35,13 @@ export default function RecruitDropdown({
   const options: { label: string; value: boolean | null }[] = [
     { label: '전체', value: null },
     { label: '모집 중', value: true },
-    { label: '마감 완료', value: false },
+    { label: '모집 마감', value: false },
   ];
 
   return (
-    <div className='relative'>
+    <div className='relative font-bold'>
       <button
-        className='rounded-lg border border-black p-2 duration-100 hover:scale-105'
+        className='rounded-lg border border-black p-2 text-lg font-bold duration-100 hover:scale-105'
         onClick={() => setIsModalOpen(!isModalOpen)}
       >
         모집 상황
@@ -53,7 +53,7 @@ export default function RecruitDropdown({
         >
           {options.map((option) => (
             <div key={option.label} className='mb-2 flex justify-center'>
-              <label className='flex w-full cursor-pointer items-center rounded-lg p-2 hover:bg-gray-100'>
+              <label className='flex w-full cursor-pointer items-center rounded-lg p-2 pl-7 hover:bg-gray-100'>
                 <input
                   type='radio'
                   name='recruit'
