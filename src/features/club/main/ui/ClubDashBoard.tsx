@@ -49,12 +49,12 @@ export default function ClubDashBoard() {
   }
 
   return (
-    <div className='flex w-full max-w-7xl flex-col items-center gap-8'>
+    <div className='max-w-8xl flex w-full flex-col items-center gap-8'>
       <div className='flex w-full items-center justify-center'>
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
       <div className='mt-6 flex w-full items-center justify-between'>
-        <span className='font-semibold'>{`총 ${clubList.length}개 동아리`}</span>
+        <span className='text-lg font-semibold'>{`총 ${clubList.length}개 동아리`}</span>
         <div className='flex space-x-6 font-semibold'>
           <RecruitDropdown
             selectedRecruit={selectedRecruit}
@@ -78,7 +78,7 @@ export default function ClubDashBoard() {
           </Fragment>
         ))}
       </div>
-      <main className='grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
+      <main className='grid w-full grid-cols-1 justify-items-center gap-8 md:grid-cols-2 lg:grid-cols-3'>
         {sortedClubs.map((club, idx) => (
           <ClubTable key={idx} club={club} />
         ))}
