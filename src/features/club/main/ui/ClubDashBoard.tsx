@@ -54,8 +54,8 @@ export default function ClubDashBoard() {
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
       <div className='mt-6 flex w-full items-center justify-between'>
-        <span className='text-lg font-semibold'>{`총 ${clubList.length}개 동아리`}</span>
-        <div className='flex space-x-6 font-semibold'>
+        <span className='text-xl font-bold'>{`총 ${clubList.length}개 동아리`}</span>
+        <div className='flex space-x-6 font-bold'>
           <RecruitDropdown
             selectedRecruit={selectedRecruit}
             setSelectedRecruit={setSelectedRecruit}
@@ -63,11 +63,11 @@ export default function ClubDashBoard() {
           <OrderDropdown sortOption={sortOption} setSortOption={setSortOption} />
         </div>
       </div>
-      <div className='h-18 scrollbar-hidden flex w-full items-center justify-evenly overflow-x-auto whitespace-nowrap rounded-xl bg-neutral-50 p-2 font-semibold text-neutral-500 hover:scrollbar-thin'>
+      <div className='h-18 scrollbar-hidden flex w-full items-center justify-evenly overflow-x-auto whitespace-nowrap rounded-xl bg-neutral-50 p-2 text-lg font-semibold text-neutral-500 hover:scrollbar-thin'>
         {Object.values(clubCategoryMapping).map((category, idx) => (
           <Fragment key={idx}>
             <button
-              className={`${selectedCategory === category ? 'bg-blue-100 text-blue-500' : ''} rounded-lg px-4 py-2 duration-100 hover:scale-105`}
+              className={`${selectedCategory === category ? 'bg-red-500 text-white' : ''} rounded-lg px-4 py-2 duration-100 hover:scale-105`}
               onClick={() => setSelectedCategory(category)}
             >
               {category}

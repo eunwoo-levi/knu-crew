@@ -44,7 +44,7 @@ export default function OrderDropdown({ sortOption, setSortOption }: OrderDropdo
   return (
     <div className='relative inline-block font-bold'>
       <button
-        className='rounded-lg border border-black p-2 duration-100 hover:scale-105'
+        className='rounded-lg border border-black p-2 text-lg duration-100 hover:scale-105'
         onClick={() => setIsModalOpen(!isModalOpen)}
       >
         정렬 기준
