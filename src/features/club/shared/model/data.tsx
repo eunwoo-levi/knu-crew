@@ -57,10 +57,10 @@ export const clubList = [
 
 export const textColorsByCategory: { [key: string]: string } = {
   NEW_REGISTRATION: 'text-sky-500',
-  TEMPORARY_REGISTRATION: 'text-blue-800',
+  TEMPORARY_REGISTRATION: 'text-slate-600',
   CULTURE_ARTS: 'text-yellow-800',
   SOCIAL: 'text-red-400',
   RELIGION: 'text-green-800',
   SPORTS: 'text-indigo-400',
-  ACADEMIC: 'text-purple-600',
+  ACADEMIC: 'text-purple-700',
 };
